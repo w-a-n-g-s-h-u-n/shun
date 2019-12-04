@@ -1,0 +1,13 @@
+* text=auto
+*.js text eol=lf linguist-language=html
+*.css text eol=lf linguist-language=html
+*.html text eol=lf linguist-language=html
+*.ftl text eol=lf linguist-language=java
+pom.xml text eol=lf linguist-language=java
+*.pdman.json text eol=lf linguist-language=sql
+*.xml text eol=lf linguist-language=sql
+*.properties text eol=lf linguist-language=java
+*.yml text eol=lf linguist-language=java
+*.java text eol=lf linguist-language=java
+*.sh text eol=lf linguist-language=shell
+*.bat text eol=crlf

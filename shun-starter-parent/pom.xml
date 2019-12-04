@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>shun-starter-parent</artifactId>
+    <packaging>pom</packaging>
+    <name>${project.artifactId}</name>
+    <description>starter父包</description>
+
+    <parent>
+        <artifactId>shun-build</artifactId>
+        <groupId>org.wangshun.shun</groupId>
+        <version>${revision}</version>
+        <relativePath>../</relativePath>
+    </parent>
+
+    <modules>
+        <module>shun-starter-core</module>
+        <module>shun-starter-db</module>
+        <module>shun-starter-cache</module>
+        <module>shun-starter-web</module>
+        <module>shun-starter-cloud</module>
+        <module>shun-starter-resource-server</module>
+        <module>shun-starter-sso</module>
+        <module>shun-starter-sso-webflux</module>
+    </modules>
+    
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+</project>

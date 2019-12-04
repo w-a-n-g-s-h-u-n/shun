@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+org.wangshun.shun.sso.config.SsoConfiguration,\
+org.wangshun.shun.sso.config.JwtDecoderConfiguration

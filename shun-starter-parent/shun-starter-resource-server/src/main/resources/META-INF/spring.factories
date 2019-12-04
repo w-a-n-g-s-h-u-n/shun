@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+org.wangshun.shun.resource.config.ResourceServerConfigurer,\
+org.wangshun.shun.resource.config.JwtDecoderConfiguration,\
+org.wangshun.shun.db.mp.config.OAuthMetaObjectHandlerAutoConfiguration

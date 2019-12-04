@@ -1,0 +1,29 @@
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>shun-samples-jwt</artifactId>
+    <name>${project.artifactId}</name>
+    <description>jwt登录案例</description>
+
+    <parent>
+        <artifactId>shun-samples</artifactId>
+        <groupId>org.wangshun.shun</groupId>
+        <version>${revision}</version>
+        <relativePath>../</relativePath>
+    </parent>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.wangshun.shun</groupId>
+            <artifactId>shun-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.wangshun.shun</groupId>
+            <artifactId>shun-starter-db</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
+        </dependency>
+    </dependencies>
+</project>

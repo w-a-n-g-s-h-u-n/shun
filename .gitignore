@@ -1,0 +1,64 @@
+### STS ###
+.apt_generated/
+.apt_generated_tests/
+.classpath
+.factorypath
+.project
+.settings/
+.springBeans
+.sts4-cache
+rebel.xml
+.txlcn
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/build/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### Maven ###
+target/
+*.war
+*.zip
+*.tar
+*.tar.gz
+*.class
+.flattened-pom.xml
+!.mvn/wrapper/maven-wrapper.jar
+
+### Temp ###
+*.tmp
+temp/
+
+### log ###
+*.log
+*.log.*
+log/
+logs/
+
+### bak ###
+bak/
+*.bak*
+*_bak
+*_bak.*
+
+### Git ###
+*.orig
+*.cache
+*.diff
+*.patch
+
+### System ###
+.DS_Store
+Thumbs.db
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*

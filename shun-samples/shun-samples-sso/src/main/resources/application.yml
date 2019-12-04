@@ -1,0 +1,38 @@
+spring:
+  security:
+    oauth2:
+      client:
+        provider:
+          auth:
+#            user-info-uri: http://login.hrmc.genomics.cn/userinfo
+            jwk-set-uri: http://login.hrmc.genomics.cn/.well-known/jwks.json
+            authorization-uri: http://login.hrmc.genomics.cn/oauth/authorize
+            token-uri: http://login.hrmc.genomics.cn/oauth/token
+            user-name-attribute: sub
+            user-info-authentication-method: header
+        registration:
+          auth:
+            redirect-uri: http://localhost/login/oauth2/code/system
+            authorization-grant-type: authorization_code
+            client-secret: system
+            client-authentication-method: basic
+            scope: server
+            client-id: system
+            client-name: 使用华大中台帐号登录
+  application:
+    name: monitor
+  main:
+    allow-bean-definition-overriding: true
+server:
+  port: 9527
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: ALWAYS
+logging:
+  level:
+    org.springframework.security: debug

@@ -1,0 +1,6 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+org.wangshun.shun.core.jackson.JacksonConfiguration,\
+org.wangshun.shun.core.fastjson.FastjsonAutoConfiguration,\
+org.wangshun.shun.core.encoder.PasswordEncoderConfiguration,\
+org.wangshun.shun.core.http.RestTemplateAutoConfiguration,\
+org.wangshun.shun.core.util.SpringUtils

@@ -1,0 +1,31 @@
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>shun-samples-sso</artifactId>
+    <name>${project.artifactId}</name>
+    <description>单点登录案例</description>
+
+    <parent>
+        <groupId>org.wangshun.shun</groupId>
+        <artifactId>shun-parent</artifactId>
+        <version>${revision}</version>
+        <relativePath>../../shun-parent/</relativePath>
+    </parent>
+
+    <properties>
+        <maven-deploy-plugin.skip>true</maven-deploy-plugin.skip>
+        <maven-install-plugin.skip>true</maven-install-plugin.skip>
+        <docker.image.prefix>wangshun1024</docker.image.prefix>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.wangshun.shun</groupId>
+            <artifactId>shun-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.wangshun.shun</groupId>
+            <artifactId>shun-starter-sso</artifactId>
+        </dependency>
+    </dependencies>
+</project>

@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+org.wangshun.shun.web.config.web.MvcAutoConfiguration,\
+org.wangshun.shun.web.config.web.GlobalExceptionHandler,\
+org.wangshun.shun.web.config.swagger.SwaggerAutoConfiguration

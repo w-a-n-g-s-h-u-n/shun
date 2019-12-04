@@ -1,0 +1,5 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+org.wangshun.shun.cloud.config.FilterIgnorePropertiesConfig,\
+org.wangshun.shun.cloud.rest.LbRestTemplateAutoConfiguration,\
+org.wangshun.shun.cloud.feign.FeignClientsConfiguration,\
+org.wangshun.shun.cloud.apollo.ApolloClientConfiguration

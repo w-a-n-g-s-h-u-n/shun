@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+org.wangshun.shun.sso.config.WebClientConfiguration,\
+org.wangshun.shun.sso.config.JwtDecoderConfiguration,\
+org.wangshun.shun.sso.config.WebSecurityConfiguration

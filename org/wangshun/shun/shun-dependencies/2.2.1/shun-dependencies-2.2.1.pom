@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-dependencies</artifactId>
+    <version>Hoxton.SR3</version>
+    <relativePath></relativePath>
+  </parent>
+  <groupId>org.wangshun.shun</groupId>
+  <artifactId>shun-dependencies</artifactId>
+  <version>2.2.1</version>
+  <packaging>pom</packaging>
+  <name>shun-dependencies</name>
+  <description>三方库版本管理</description>
+  <url>https://projects.spring.io/spring-cloud/spring-cloud-dependencies/shun-dependencies/</url>
+  <organization>
+    <name>Pivotal Software, Inc.</name>
+    <url>https://www.spring.io</url>
+  </organization>
+  <licenses>
+    <license>
+      <name>Apache License, Version 2.0</name>
+      <url>https://www.apache.org/licenses/LICENSE-2.0</url>
+      <comments>Copyright 2014-2015 the original author or authors.
+
+				Licensed under the Apache License, Version 2.0 (the "License");
+				you may not use this file except in compliance with the License.
+				You may obtain a copy of the License at
+
+				https://www.apache.org/licenses/LICENSE-2.0
+
+				Unless required by applicable law or agreed to in writing, software
+				distributed under the License is distributed on an "AS IS" BASIS,
+				WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+				implied.
+
+				See the License for the specific language governing permissions and
+				limitations under the License.</comments>
+    </license>
+  </licenses>
+  <developers>
+    <developer>
+      <id>dsyer</id>
+      <name>Dave Syer</name>
+      <email>dsyer at pivotal.io</email>
+      <organization>Pivotal Software, Inc.</organization>
+      <organizationUrl>https://www.spring.io</organizationUrl>
+      <roles>
+        <role>Project lead</role>
+      </roles>
+    </developer>
+    <developer>
+      <id>sgibb</id>
+      <name>Spencer Gibb</name>
+      <email>sgibb at pivotal.io</email>
+      <organization>Pivotal Software, Inc.</organization>
+      <organizationUrl>https://www.spring.io</organizationUrl>
+      <roles>
+        <role>Project lead</role>
+      </roles>
+    </developer>
+  </developers>
+  <scm>
+    <connection>scm:git:git://github.com/spring-cloud/spring-cloud-build.git/spring-cloud-dependencies/shun-dependencies</connection>
+    <developerConnection>scm:git:ssh://git@github.com/spring-cloud/spring-cloud-build.git/spring-cloud-dependencies/shun-dependencies</developerConnection>
+    <url>https://github.com/spring-cloud/spring-cloud-build/spring-cloud-dependencies/shun-dependencies</url>
+  </scm>
+  <distributionManagement>
+    <repository>
+      <id>releases</id>
+      <url>${releases.repo}</url>
+    </repository>
+    <snapshotRepository>
+      <id>snapshots</id>
+      <url>${snapshots.repo}</url>
+    </snapshotRepository>
+    <site>
+      <id>spring-docs</id>
+      <url>scp://static.springframework.org/var/www/domains/springframework.org/static/htdocs/spring-cloud/docs/spring-cloud-dependencies-parent/2.2.3.RELEASE/spring-cloud-dependencies/shun-dependencies</url>
+    </site>
+    <downloadUrl>https://github.com/spring-cloud</downloadUrl>
+  </distributionManagement>
+  <properties>
+    <swagger.version>2.9.2</swagger.version>
+    <lombok.version>1.18.12</lombok.version>
+    <jasypt.version>3.0.2</jasypt.version>
+    <hutool.version>5.2.0</hutool.version>
+    <spring-boot.version>2.2.1.RELEASE</spring-boot.version>
+    <knife4j.version>2.0.1</knife4j.version>
+    <mybatis-plus.version>3.3.1</mybatis-plus.version>
+    <sharding-sphere.version>4.0.0</sharding-sphere.version>
+    <spring-boot-admin.version>2.2.1</spring-boot-admin.version>
+    <dozer.version>6.5.0</dozer.version>
+    <revision>2.2.1</revision>
+    <fastjson.version>1.2.58</fastjson.version>
+    <p6spy.version>3.8.7</p6spy.version>
+  </properties>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>com.alibaba</groupId>
+        <artifactId>fastjson</artifactId>
+        <version>${fastjson.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.baomidou</groupId>
+        <artifactId>mybatis-plus-boot-starter</artifactId>
+        <version>${mybatis-plus.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.baomidou</groupId>
+        <artifactId>mybatis-plus-annotation</artifactId>
+        <version>${mybatis-plus.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.baomidou</groupId>
+        <artifactId>mybatis-plus-extension</artifactId>
+        <version>${mybatis-plus.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>p6spy</groupId>
+        <artifactId>p6spy</artifactId>
+        <version>${p6spy.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>cn.hutool</groupId>
+        <artifactId>hutool-all</artifactId>
+        <version>${hutool.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>cn.hutool</groupId>
+        <artifactId>hutool-core</artifactId>
+        <version>${hutool.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>cn.hutool</groupId>
+        <artifactId>hutool-http</artifactId>
+        <version>${hutool.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>cn.hutool</groupId>
+        <artifactId>hutool-db</artifactId>
+        <version>${hutool.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>cn.hutool</groupId>
+        <artifactId>hutool-crypto</artifactId>
+        <version>${hutool.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.ctrip.framework.apollo</groupId>
+        <artifactId>apollo-client</artifactId>
+        <version>${apollo.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.github.ulisesbocchio</groupId>
+        <artifactId>jasypt-spring-boot-starter</artifactId>
+        <version>${jasypt.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <version>${lombok.version}</version>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>io.springfox</groupId>
+        <artifactId>springfox-swagger2</artifactId>
+        <version>${swagger.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.springfox</groupId>
+        <artifactId>springfox-swagger-ui</artifactId>
+        <version>${swagger.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.github.xiaoymin</groupId>
+        <artifactId>knife4j-spring-boot-starter</artifactId>
+        <version>${knife4j.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.github.xiaoymin</groupId>
+        <artifactId>knife4j-micro-spring-boot-starter</artifactId>
+        <version>${knife4j.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.shardingsphere</groupId>
+        <artifactId>sharding-jdbc-spring-boot-starter</artifactId>
+        <version>${sharding-sphere.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.github.dozermapper</groupId>
+        <artifactId>dozer-spring-boot-starter</artifactId>
+        <version>${dozer.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.security.oauth.boot</groupId>
+        <artifactId>spring-security-oauth2-autoconfigure</artifactId>
+        <version>${spring-boot.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>de.codecentric</groupId>
+        <artifactId>spring-boot-admin-dependencies</artifactId>
+        <version>${spring-boot-admin.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.wangshun.shun</groupId>
+        <artifactId>shun-starter-core</artifactId>
+        <version>${revision}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.wangshun.shun</groupId>
+        <artifactId>shun-starter-cloud</artifactId>
+        <version>${revision}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.wangshun.shun</groupId>
+        <artifactId>shun-starter-db</artifactId>
+        <version>${revision}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.wangshun.shun</groupId>
+        <artifactId>shun-starter-cache</artifactId>
+        <version>${revision}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.wangshun.shun</groupId>
+        <artifactId>shun-starter-web</artifactId>
+        <version>${revision}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.wangshun.shun</groupId>
+        <artifactId>shun-starter-resource-server</artifactId>
+        <version>${revision}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.wangshun.shun</groupId>
+        <artifactId>shun-starter-sso</artifactId>
+        <version>${revision}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.wangshun.shun</groupId>
+        <artifactId>shun-starter-sso-webflux</artifactId>
+        <version>${revision}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+  <dependencies>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.12</version>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
+</project>

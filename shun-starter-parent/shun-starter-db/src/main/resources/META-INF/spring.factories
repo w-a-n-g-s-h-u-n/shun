@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+org.wangshun.shun.db.config.mp.MybatisAutoConfiguration,\
+org.wangshun.shun.db.config.dozer.DozerAutoConfiguration

@@ -1,0 +1,68 @@
+server:
+  port: 8628
+  tomcat:
+    uri-encoding: UTF-8
+logging:
+  level:
+    root: INFO
+    org.wangshun.shun.sample.curd: DEBUG
+    org.wangshun.shun.sample.curd.dao: WARN
+spring:
+  application:
+    name: shun-samples-curd
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+  cache:
+    type: redis
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    database: 4
+    timeout: 10000
+    jedis:
+      pool:
+        max-active: 8
+        max-idle: 8
+        max-wait: -1
+        min-idle: 0
+  datasource:
+    driver-class-name: com.p6spy.engine.spy.P6SpyDriver
+    url: jdbc:p6spy:mysql://localhost:3306/shun-samples-curd?useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false&zeroDateTimeBehavior=convertToNull&tinyInt1isBit=false&useSSL=false&serverTimezone=Asia/Shanghai
+    username: wangshun
+    password: wangshun
+    hikari:
+      maximum-pool-size: 3
+  web:
+    cors:
+      allowed-headers: '*'
+      allowed-methods: '*'
+      allowed-origins: '*'
+      max-age: 360000
+management:
+  endpoint:
+    shutdown:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+mybatis-plus:
+  configuration:
+    auto-mapping-behavior: FULL
+    auto-mapping-unknown-column-behavior: WARNING
+    default-enum-type-handler: com.baomidou.mybatisplus.extension.handlers.MybatisEnumTypeHandler
+  global-config:
+    banner: false
+    db-config:
+      id-type: id-worker
+      logic-delete-value: true
+      logic-not-delete-value: false
+      table-prefix: 't_'
+  mapper-locations: classpath*:mapper/*.xml
+  type-aliases-package: org.wangshun.shun.sample.curd.entity.PO
+  type-enums-package: 'org.wangshun.shun.sample.curd.*.enums'
+dozer:
+  mapping-files: classpath*:dozer/*.xml

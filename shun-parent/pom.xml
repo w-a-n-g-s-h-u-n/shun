@@ -26,7 +26,7 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
-        <dockerfile-maven-plugin.version>1.4.10</dockerfile-maven-plugin.version>
+        <dockerfile-maven-plugin.version>1.4.13</dockerfile-maven-plugin.version>
         <maven-deploy-plugin.skip>false</maven-deploy-plugin.skip>
         <maven-install-plugin.skip>false</maven-install-plugin.skip>
     </properties>

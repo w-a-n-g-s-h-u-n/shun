@@ -12,7 +12,7 @@
     <parent>
         <artifactId>spring-cloud-starter-parent</artifactId>
         <groupId>org.springframework.cloud</groupId>
-        <version>Hoxton.SR2</version>
+        <version>1.0.2.RELEASE</version>
         <relativePath />
     </parent>
 

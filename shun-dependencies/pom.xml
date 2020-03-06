@@ -17,7 +17,7 @@
     </parent>
 
     <properties>
-        <revision>2.2.1</revision>
+        <revision>2.2.2-snapshot</revision>
 
         <spring-boot.version>2.2.1.RELEASE</spring-boot.version>
         <spring-boot-admin.version>2.2.1</spring-boot-admin.version>

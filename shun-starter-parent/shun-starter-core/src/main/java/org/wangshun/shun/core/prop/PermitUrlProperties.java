@@ -1,4 +1,4 @@
-package org.wangshun.shun.core.props;
+package org.wangshun.shun.core.prop;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;

@@ -16,7 +16,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import org.wangshun.shun.core.props.CorsEndpointProperties;
+import org.wangshun.shun.core.prop.CorsEndpointProperties;
 import org.wangshun.shun.core.rest.RestTemplateAutoConfiguration;
 
 import com.alibaba.fastjson.support.config.FastJsonConfig;

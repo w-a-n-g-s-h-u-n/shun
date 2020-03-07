@@ -14,7 +14,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.oauth2.jwt.NimbusJwtDecoder;
 import org.springframework.web.cors.CorsUtils;
 import org.wangshun.shun.core.http.R;
-import org.wangshun.shun.core.props.PermitUrlProperties;
+import org.wangshun.shun.core.prop.PermitUrlProperties;
 import org.wangshun.shun.sample.jwt.util.JwtHelper;
 
 import com.nimbusds.jose.JOSEException;

@@ -80,13 +80,13 @@ public class TreeUtils {
     public static <T extends ITreeEntity<T>> void fill(T entity, int rootLevel) {
         entity.setLevel(rootLevel);
         if (null == entity.getIsLeaf()) {
-            entity.setIsLeaf(0);
+            entity.setIsLeaf(false);
         }
         entity.getChildren().stream().forEach(e -> {
             fill(e, rootLevel + 1);
             e.setSort(getMaxSort(entity) + 1);
             e.setParent(entity);
-            entity.setIsLeaf(0);
+            entity.setIsLeaf(false);
         });
     }
 

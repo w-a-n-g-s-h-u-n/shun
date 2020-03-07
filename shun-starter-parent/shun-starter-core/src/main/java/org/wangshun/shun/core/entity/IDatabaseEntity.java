@@ -13,7 +13,7 @@ import org.wangshun.shun.core.entity.impl.BaseCurdEntity;
 import cn.hutool.core.util.ReflectUtil;
 import cn.hutool.core.util.TypeUtil;
 
-public interface IDatabaseEntity<T> extends Serializable, Cloneable {
+public interface IDatabaseEntity<T> extends Serializable {
 
     Long getId();
 

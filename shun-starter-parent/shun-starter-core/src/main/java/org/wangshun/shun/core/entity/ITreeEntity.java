@@ -1,13 +1,8 @@
 package org.wangshun.shun.core.entity;
 
-import java.io.Serializable;
 import java.util.List;
 
-public interface ITreeEntity<T extends ITreeEntity<T>> extends Serializable, Cloneable, Comparable<T> {
-
-    Long getId();
-
-    T setId(Long id);
+public interface ITreeEntity<T extends ITreeEntity<T>> extends IDatabaseEntity<T>, Comparable<T> {
 
     T getParent();
 
@@ -25,8 +20,8 @@ public interface ITreeEntity<T extends ITreeEntity<T>> extends Serializable, Clo
 
     T setSort(Integer sort);
 
-    Integer getIsLeaf();
+    Boolean getIsLeaf();
 
-    T setIsLeaf(Integer isLeaf);
+    T setIsLeaf(Boolean isLeaf);
 
 }

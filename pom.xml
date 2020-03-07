@@ -17,7 +17,7 @@
     </parent>
     
     <properties>
-        <revision>2.2.2-snapshot</revision>
+        <revision>2.2.2-SNAPSHOT</revision>
     </properties>
     
     <modules>

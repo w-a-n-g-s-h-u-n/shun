@@ -1,4 +1,4 @@
-package org.wangshun.shun.core.entity.impl;
+package org.wangshun.shun.db.base.entity;
 
 import org.wangshun.shun.core.entity.IDatabaseEntity;
 

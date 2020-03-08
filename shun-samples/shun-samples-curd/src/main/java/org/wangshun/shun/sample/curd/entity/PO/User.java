@@ -2,7 +2,7 @@
 
 import java.time.Instant;
 
-import org.wangshun.shun.core.entity.impl.BaseCurdEntity;
+import org.wangshun.shun.db.base.entity.BaseCurdEntity;
 import org.wangshun.shun.sample.curd.enums.GenderEnum;
 
 import lombok.Data;

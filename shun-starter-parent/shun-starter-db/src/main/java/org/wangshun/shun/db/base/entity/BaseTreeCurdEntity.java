@@ -1,4 +1,4 @@
-package org.wangshun.shun.core.entity.impl;
+ package org.wangshun.shun.db.base.entity;
 
 import java.time.Instant;
 
@@ -7,8 +7,7 @@ import org.wangshun.shun.core.entity.ICurdEntity;
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
 
-public abstract class BaseCurdEntity<T extends BaseCurdEntity<T>> extends BaseDatabaseEntity<T>
-    implements ICurdEntity<T> {
+public class BaseTreeCurdEntity<T extends BaseTreeCurdEntity<T>> extends BaseTreeEntity<T> implements ICurdEntity<T> {
     protected static final long serialVersionUID = 1L;// serialVersionUID
 
     @TableField(fill = FieldFill.INSERT)

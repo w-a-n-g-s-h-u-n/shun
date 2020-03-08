@@ -3,7 +3,7 @@ package org.wangshun.shun.sample.jwt.entity.PO;
 import org.springframework.security.core.CredentialsContainer;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.wangshun.shun.core.entity.impl.BaseCurdEntity;
+import org.wangshun.shun.db.base.entity.BaseCurdEntity;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 

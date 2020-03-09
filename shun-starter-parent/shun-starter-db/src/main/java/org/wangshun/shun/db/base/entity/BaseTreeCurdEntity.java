@@ -1,43 +1,85 @@
- package org.wangshun.shun.db.base.entity;
+package org.wangshun.shun.db.base.entity;
 
-import java.time.Instant;
+import org.wangshun.shun.core.entity.ITreeEntity;
 
-import org.wangshun.shun.core.entity.ICurdEntity;
-
-import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
 
-public class BaseTreeCurdEntity<T extends BaseTreeCurdEntity<T>> extends BaseTreeEntity<T> implements ICurdEntity<T> {
+import java.util.List;
+
+import cn.hutool.core.comparator.CompareUtil;
+
+public class BaseTreeCurdEntity<T extends BaseTreeCurdEntity<T>> extends BaseCurdEntity<T> implements ITreeEntity<T> {
     protected static final long serialVersionUID = 1L;// serialVersionUID
 
-    @TableField(fill = FieldFill.INSERT)
-    protected Instant createTime;// 创建时间
-
-    @TableField(fill = FieldFill.INSERT_UPDATE)
-    protected Instant updateTime;// 更新时间
+    @TableField(value = "parent_id", typeHandler = BaseCurdEntityTypeHandler.class)
+    protected T parent;// 父节点
+    @TableField(exist = false)
+    protected List<T> children;// 子节点
+    protected Integer sort;// 排序
+    protected Boolean isLeaf;// 是否叶子节点
 
     @Override
-    public Instant getCreateTime() {
-        return createTime;
+    public T getParent() {
+        return parent;
     }
 
-    @Override
     @SuppressWarnings("unchecked")
-    public T setCreateTime(Instant createTime) {
-        this.createTime = createTime;
+    @Override
+    public T setParent(T parent) {
+        this.parent = parent;
         return (T)this;
     }
 
     @Override
-    public Instant getUpdateTime() {
-        return updateTime;
+    public List<T> getChildren() {
+        return children;
+    }
+
+    @SuppressWarnings("unchecked")
+    @Override
+    public T setChildren(List<T> children) {
+        this.children = children;
+        return (T)this;
     }
 
     @Override
+    public Integer getSort() {
+        return sort;
+    }
+
     @SuppressWarnings("unchecked")
-    public T setUpdateTime(Instant updateTime) {
-        this.updateTime = updateTime;
+    @Override
+    public T setSort(Integer sort) {
+        this.sort = sort;
         return (T)this;
+    }
+
+    @Override
+    public Boolean getIsLeaf() {
+        return isLeaf;
+    }
+
+    @SuppressWarnings("unchecked")
+    @Override
+    public T setIsLeaf(Boolean isLeaf) {
+        this.isLeaf = isLeaf;
+        return (T)this;
+    }
+
+    @Override
+    public int compareTo(T o) {
+        int i;
+        i = CompareUtil.compare(o.getParent(), o.getParent());
+        if (i != 0)
+            return i;
+        i = CompareUtil.compare(o.getSort(), o.getSort());
+        if (i != 0)
+            return i;
+        i = CompareUtil.compare(o.getIsLeaf(), o.getIsLeaf());
+        if (i != 0)
+            return i;
+        i = CompareUtil.compare(o.getId(), o.getId());
+        return i;
     }
 
 }

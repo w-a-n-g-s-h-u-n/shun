@@ -12,10 +12,6 @@ public interface ITreeEntity<T extends ITreeEntity<T>> extends IDatabaseEntity<T
 
     T setChildren(List<T> children);
 
-    Integer getLevel();
-
-    T setLevel(Integer level);
-
     Integer getSort();
 
     T setSort(Integer sort);

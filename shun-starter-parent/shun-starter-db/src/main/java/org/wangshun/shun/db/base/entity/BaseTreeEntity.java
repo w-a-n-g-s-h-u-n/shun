@@ -40,18 +40,6 @@ public class BaseTreeEntity<T extends BaseTreeEntity<T>> extends BaseDatabaseEnt
     }
 
     @Override
-    public Integer getLevel() {
-        return level;
-    }
-
-    @SuppressWarnings("unchecked")
-    @Override
-    public T setLevel(Integer level) {
-        this.level = level;
-        return (T)this;
-    }
-
-    @Override
     public Integer getSort() {
         return sort;
     }

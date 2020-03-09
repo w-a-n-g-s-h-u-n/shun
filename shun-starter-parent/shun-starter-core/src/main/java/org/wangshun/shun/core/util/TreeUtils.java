@@ -10,22 +10,21 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import cn.hutool.core.collection.CollUtil;
-import cn.hutool.core.comparator.CompareUtil;
 
 public class TreeUtils {
     /**
      * 
      * 从集合转换为树结构
      */
-    public static <T extends ITreeEntity<T>> List<T> converToTree(Collection<T> allEntity) {
-        List<T> tree = CollUtil.newArrayList();
-        Map<Long, T> allEntityMap = allEntity.parallelStream().collect(Collectors.toMap(T::getId, Function.identity()));
-        allEntity.forEach(i -> {
-            T parent = i.getParent();
+    public static <T extends ITreeEntity<T>> List<T> converToTree(Collection<T> nodes) {
+        List<T> tree = CollUtil.newLinkedList();
+        Map<Long, T> allEntityMap = nodes.parallelStream().collect(Collectors.toMap(T::getId, Function.identity()));
+        nodes.forEach(node -> {
+            T parent = node.getParent();
             if (null == parent) {
-                tree.add(allEntityMap.get(i.getId()));
+                tree.add(allEntityMap.get(node.getId()));
             } else {
-                allEntityMap.get(parent.getId()).getChildren().add(i);
+                allEntityMap.get(parent.getId()).getChildren().add(node);
             }
         });
         return tree;
@@ -33,43 +32,38 @@ public class TreeUtils {
 
     /**
      * 
-     * 获取所有子节点
+     * 获取所有子节点 不加上自己
      */
-    private static <T extends ITreeEntity<T>> List<T> getAllChildren(Collection<T> entities) {
-        List<T> allChildren = CollUtil.newArrayList();
-        entities.stream().flatMap(i -> getAllChildren(i).stream()).collect(Collectors.toList());
-        allChildren.addAll(entities);
-        return allChildren;
+    private static <T extends ITreeEntity<T>> List<T> getAllChildren(Collection<T> nodes) {
+        return nodes.parallelStream().flatMap(node -> getAllChildren(node).stream()).collect(Collectors.toList());
     }
 
     /**
      * 
-     * 获取所有子节点 不包括自己
+     * 获取所有子节点 不加上自己
      */
 
-    public static <T extends ITreeEntity<T>> List<T> getAllChildren(T entity) {
-        List<T> allChildren = CollUtil.newArrayList();
-        allChildren.addAll(entity.getChildren());
-        allChildren.addAll(getAllChildren(entity.getChildren()));
-        return allChildren;
+    public static <T extends ITreeEntity<T>> List<T> getAllChildren(T node) {
+        List<T> children = getAllChildren(node.getChildren());
+        children.addAll(node.getChildren());
+        return children;
     }
 
     /**
      * 
-     * 获取所有节点 包括自己
+     * 获取所有子节点 加上自己
      */
-    public static <T extends ITreeEntity<T>> List<T> getAllNode(Collection<T> entities) {
-        List<T> allNode = entities.stream().flatMap(i -> getAllNode(i).stream()).collect(Collectors.toList());
-        return allNode;
+    public static <T extends ITreeEntity<T>> List<T> getAllNode(Collection<T> nodes) {
+        return nodes.parallelStream().flatMap(node -> getAllNode(node).stream()).collect(Collectors.toList());
     }
 
     /**
      * 
-     * 获取所有节点 包括自己
+     * 获取所有子节点 加上自己
      */
-    public static <T extends ITreeEntity<T>> List<T> getAllNode(T entity) {
-        List<T> allNode = getAllNode(entity.getChildren());
-        allNode.add(entity);
+    public static <T extends ITreeEntity<T>> List<T> getAllNode(T node) {
+        List<T> allNode = getAllNode(node.getChildren());
+        allNode.add(node);
         return allNode;
     }
 
@@ -77,16 +71,15 @@ public class TreeUtils {
      * 
      * 填充子节点的level、sort、isLeaf属性
      */
-    public static <T extends ITreeEntity<T>> void fill(T entity, int rootLevel) {
-        entity.setLevel(rootLevel);
-        if (null == entity.getIsLeaf()) {
-            entity.setIsLeaf(false);
+    public static <T extends ITreeEntity<T>> void fill(T node) {
+        if (null == node.getIsLeaf()) {
+            node.setIsLeaf(false);
         }
-        entity.getChildren().stream().forEach(e -> {
-            fill(e, rootLevel + 1);
-            e.setSort(getMaxSort(entity) + 1);
-            e.setParent(entity);
-            entity.setIsLeaf(false);
+        node.getChildren().stream().forEach(e -> {
+            fill(e);
+            e.setSort(getMaxSort(node) + 1);
+            e.setParent(node);
+            node.setIsLeaf(false);
         });
     }
 
@@ -94,20 +87,17 @@ public class TreeUtils {
      * 
      * 填充子节点的level、sort、isLeaf属性
      */
-    public static <T extends ITreeEntity<T>> void fill(List<T> entities, int rootLevel) {
+    public static <T extends ITreeEntity<T>> void fill(List<T> nodes) {
         int sort = 0;
-        for (T i : entities) {
+        for (T i : nodes) {
             i.setSort(++sort);
-            fill(i, rootLevel);
+            fill(i);
         }
     }
 
-    private static <T extends ITreeEntity<T>> Integer getMaxSort(T entity) {
-        return entity.getChildren().parallelStream().map(ITreeEntity::getSort).max(new Comparator<Integer>() {
-            @Override
-            public int compare(Integer o1, Integer o2) {
-                return CompareUtil.compare(o1, o2);
-            }
-        }).orElse(0);
+    private static <T extends ITreeEntity<T>> Integer getMaxSort(T node) {
+        return node.getChildren().parallelStream().map(ITreeEntity::getSort)
+            .max(Comparator.nullsFirst(Comparator.naturalOrder()))
+            .orElse(0);
     }
 }

@@ -75,24 +75,22 @@ public class TreeUtils {
         if (null == node.getIsLeaf()) {
             node.setIsLeaf(false);
         }
-        node.getChildren().stream().forEach(e -> {
-            fill(e);
-            e.setSort(getMaxSort(node) + 1);
-            e.setParent(node);
-            node.setIsLeaf(false);
-        });
+        int maxSort = getMaxSort(node);
+        for (T child : node.getChildren()) {
+            child.setParent(node);
+            if (null == child.getSort()) {
+                child.setSort(++maxSort);
+            }
+            fill(child);
+        }
     }
 
     /**
      * 
-     * 填充子节点的level、sort、isLeaf属性
+     * 填充子节点的sort、isLeaf属性
      */
     public static <T extends ITreeEntity<T>> void fill(List<T> nodes) {
-        int sort = 0;
-        for (T i : nodes) {
-            i.setSort(++sort);
-            fill(i);
-        }
+        nodes.forEach(TreeUtils::fill);
     }
 
     private static <T extends ITreeEntity<T>> Integer getMaxSort(T node) {

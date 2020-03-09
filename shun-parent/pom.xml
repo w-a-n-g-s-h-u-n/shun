@@ -26,7 +26,6 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
-        <dockerfile-maven-plugin.version>1.4.13</dockerfile-maven-plugin.version>
         <maven-deploy-plugin.skip>false</maven-deploy-plugin.skip>
         <maven-install-plugin.skip>false</maven-install-plugin.skip>
     </properties>
@@ -99,10 +98,40 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>flatten-maven-plugin</artifactId>
-            </plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>flatten-maven-plugin</artifactId>
+				<inherited>true</inherited>
+				<executions>
+					<execution>
+						<!-- Flatten and simplify our own POM for install/deploy -->
+						<id>flatten</id>
+						<phase>process-resources</phase>
+						<goals>
+							<goal>flatten</goal>
+						</goals>
+						<configuration>
+							<updatePomFile>true</updatePomFile>
+							<flattenMode>oss</flattenMode>
+							<pomElements>
+								<parent>expand</parent>
+                                <properties>keep</properties>
+								<pluginManagement>keep</pluginManagement>
+                                <dependencyManagement>interpolate</dependencyManagement>
+								<repositories>remove</repositories>
+                                <distributionManagement>remove</distributionManagement>
+							</pomElements>
+						</configuration>
+					</execution>
+					<execution>
+						<id>flatten-clean</id>
+						<phase>clean</phase>
+						<goals>
+							<goal>clean</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
         </plugins>
         <pluginManagement>
             <plugins>
@@ -123,7 +152,7 @@
                 <plugin>
                     <groupId>com.spotify</groupId>
                     <artifactId>dockerfile-maven-plugin</artifactId>
-                    <version>${dockerfile-maven-plugin.version}</version>
+                    <version>1.4.13</version>
                     <configuration>
                         <repository>${docker.image.prefix}/${project.artifactId}</repository>
                         <username>${docker.repository.username}</username>

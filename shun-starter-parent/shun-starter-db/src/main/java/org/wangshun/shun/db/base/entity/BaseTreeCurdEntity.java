@@ -11,7 +11,7 @@ import cn.hutool.core.comparator.CompareUtil;
 public class BaseTreeCurdEntity<T extends BaseTreeCurdEntity<T>> extends BaseCurdEntity<T> implements ITreeEntity<T> {
     protected static final long serialVersionUID = 1L;// serialVersionUID
 
-    @TableField(value = "parent_id", typeHandler = BaseCurdEntityTypeHandler.class)
+    @TableField(value = "parent_id", typeHandler = BaseDatabaseEntityTypeHandler.class)
     protected T parent;// 父节点
     @TableField(exist = false)
     protected List<T> children;// 子节点

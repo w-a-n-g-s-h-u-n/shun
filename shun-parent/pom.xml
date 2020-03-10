@@ -117,6 +117,7 @@
 								<parent>expand</parent>
                                 <properties>keep</properties>
 								<pluginManagement>keep</pluginManagement>
+								<dependencies>interpolate</dependencies>
                                 <dependencyManagement>interpolate</dependencyManagement>
 								<repositories>remove</repositories>
                                 <distributionManagement>remove</distributionManagement>

@@ -68,7 +68,7 @@ public class SysUser extends BaseCurdEntity<SysUser> implements CredentialsConta
         this.password = null;
     }
 
-    public static class SysUserTypeHandler extends BaseCurdEntityTypeHandler<SysUser> {}
+    public static class SysUserTypeHandler extends BaseDatabaseEntityTypeHandler<SysUser> {}
 
     @Override
     public boolean isAccountNonExpired() {

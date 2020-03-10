@@ -7,9 +7,9 @@ import org.wangshun.shun.core.http.R;
 import org.wangshun.shun.db.base.entity.BaseDatabaseEntity;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.ReflectionKit;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 
 import java.util.Collection;
 import java.util.Map;
@@ -234,7 +234,7 @@ public abstract class BaseController<S extends BaseService<M, T>, M extends Base
      * @param entity
      *            实体对象
      */
-    protected <E extends IPage<T>> R page(E page, T entity) {
+    protected R page(Page<T> page, T entity) {
         return R.success(baseService.page(page, Wrappers.query(entity)));
     }
 
@@ -245,7 +245,7 @@ public abstract class BaseController<S extends BaseService<M, T>, M extends Base
      *            翻页对象
      * @see Wrappers#emptyWrapper()
      */
-    protected <E extends IPage<T>> R page(E page) {
+    protected R page(Page<T> page) {
         return R.success(baseService.page(page));
     }
 
@@ -293,7 +293,7 @@ public abstract class BaseController<S extends BaseService<M, T>, M extends Base
      * @param entity
      *            实体对象
      */
-    protected <E extends IPage<Map<String, Object>>> R pageMaps(E page, T entity) {
+    protected R pageMaps(Page<Map<String, Object>> page, T entity) {
         return R.success(baseService.pageMaps(page, Wrappers.query(entity)));
     }
 
@@ -304,7 +304,7 @@ public abstract class BaseController<S extends BaseService<M, T>, M extends Base
      *            翻页对象
      * @see Wrappers#emptyWrapper()
      */
-    protected <E extends IPage<Map<String, Object>>> R pageMaps(E page) {
+    protected R pageMaps(Page<Map<String, Object>> page) {
         return R.success(baseService.pageMaps(page));
     }
 

@@ -234,8 +234,8 @@ public abstract class BaseController<S extends BaseService<M, T>, M extends Base
      * @param entity
      *            实体对象
      */
-    protected R page(Page<T> page, T entity) {
-        return R.success(baseService.page(page, Wrappers.query(entity)));
+    protected R page(PageCondition<T> page) {
+        return R.success(baseService.page(page, Wrappers.query(page.getCondition())));
     }
 
     /**

@@ -15,19 +15,6 @@ spring:
       charset: UTF-8
       enabled: true
       force: true
-  cache:
-    type: redis
-  redis:
-    host: 127.0.0.1
-    port: 6379
-    database: 4
-    timeout: 10000
-    jedis:
-      pool:
-        max-active: 8
-        max-idle: 8
-        max-wait: -1
-        min-idle: 0
   datasource:
     driver-class-name: com.p6spy.engine.spy.P6SpyDriver
     url: jdbc:p6spy:mysql://localhost:3306/shun-samples-curd?useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false&zeroDateTimeBehavior=convertToNull&tinyInt1isBit=false&useSSL=false&serverTimezone=Asia/Shanghai
@@ -57,7 +44,7 @@ mybatis-plus:
   global-config:
     banner: false
     db-config:
-      id-type: id-worker
+      id-type: assign_id
       logic-delete-value: true
       logic-not-delete-value: false
       table-prefix: 't_'

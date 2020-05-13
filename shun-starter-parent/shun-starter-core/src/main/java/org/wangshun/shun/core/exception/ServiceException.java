@@ -1,5 +1,7 @@
 package org.wangshun.shun.core.exception;
 
+import cn.hutool.core.util.StrUtil;
+
 public class ServiceException extends RuntimeException {
     private final static String DEFAULT_MESSAGE = "系统异常";
     /**
@@ -13,6 +15,10 @@ public class ServiceException extends RuntimeException {
 
     public ServiceException(String message) {
         super(message);
+    }
+
+    public ServiceException(String message, Object... params) {
+        super(StrUtil.format(message, params));
     }
 
     public ServiceException(Throwable cause) {

@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 import cn.hutool.core.util.ArrayUtil;
 import lombok.Data;
 
-@ConfigurationProperties(prefix = "spring.security.oauth2")
+@ConfigurationProperties(prefix = "spring.security")
 @Data
 @Component
 public class PermitUrlProperties {

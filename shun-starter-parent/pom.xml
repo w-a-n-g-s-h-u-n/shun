@@ -17,7 +17,6 @@
     <modules>
         <module>shun-starter-core</module>
         <module>shun-starter-db</module>
-        <module>shun-starter-cache</module>
         <module>shun-starter-web</module>
         <module>shun-starter-cloud</module>
         <module>shun-starter-resource-server</module>

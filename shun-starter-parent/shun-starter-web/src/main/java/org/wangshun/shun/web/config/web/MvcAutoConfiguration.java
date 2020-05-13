@@ -1,10 +1,9 @@
 package org.wangshun.shun.web.config.web;
 
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-
+import com.alibaba.fastjson.support.config.FastJsonConfig;
+import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import lombok.AllArgsConstructor;
 import org.springframework.boot.autoconfigure.AutoConfigureBefore;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -19,15 +18,13 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.wangshun.shun.core.prop.CorsEndpointProperties;
 import org.wangshun.shun.core.rest.RestTemplateAutoConfiguration;
 
-import com.alibaba.fastjson.support.config.FastJsonConfig;
-import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-
-import lombok.AllArgsConstructor;
 
 @Configuration
 @ConditionalOnClass(WebMvcAutoConfiguration.class)

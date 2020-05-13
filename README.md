@@ -1,5 +1,5 @@
 # 微服务快速开发脚手架
-    基于Spring Cloud Hoxton.SR3的微服务开发脚手架
+    基于Spring Cloud Hoxton.SR4的微服务开发脚手架
 ## 仓库地址
 ``` xml
 <repositories>

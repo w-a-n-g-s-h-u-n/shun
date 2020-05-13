@@ -21,9 +21,5 @@
             <groupId>org.wangshun.shun</groupId>
             <artifactId>shun-starter-db</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.wangshun.shun</groupId>
-            <artifactId>shun-starter-cache</artifactId>
-        </dependency>
     </dependencies>
 </project>

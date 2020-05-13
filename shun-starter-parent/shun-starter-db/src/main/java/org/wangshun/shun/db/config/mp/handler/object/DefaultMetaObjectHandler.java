@@ -13,7 +13,6 @@ public class DefaultMetaObjectHandler implements MetaObjectHandler {
     private final String updateTime = "updateTime";
 
     @Override
-    @SneakyThrows
     public void insertFill(MetaObject metaObject) {
         Instant now = Instant.now();
         this.strictInsertFill(metaObject, createTime, Instant.class, now);
@@ -21,7 +20,6 @@ public class DefaultMetaObjectHandler implements MetaObjectHandler {
     }
 
     @Override
-    @SneakyThrows
     public void updateFill(MetaObject metaObject) {
         this.strictUpdateFill(metaObject, updateTime, Instant.class, Instant.now());
     }

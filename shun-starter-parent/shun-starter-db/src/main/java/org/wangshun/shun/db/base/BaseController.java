@@ -231,11 +231,11 @@ public abstract class BaseController<S extends BaseService<M, T>, M extends Base
      *
      * @param page
      *            翻页对象
-     * @param entity
+     * @param condition
      *            实体对象
      */
-    protected R page(PageCondition<T> page) {
-        return R.success(baseService.page(page, Wrappers.query(page.getCondition())));
+    protected R page(PageCondition page,T condition) {
+        return R.success(baseService.page(page.toPage(), Wrappers.query(condition)));
     }
 
     /**

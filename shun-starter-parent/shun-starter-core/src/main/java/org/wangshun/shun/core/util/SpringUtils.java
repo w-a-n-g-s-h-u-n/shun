@@ -1,5 +1,7 @@
 package org.wangshun.shun.core.util;
 
+import cn.hutool.core.util.ArrayUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.context.ApplicationContext;
@@ -12,9 +14,6 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-
-import cn.hutool.core.util.ArrayUtil;
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * 获取上下文bean。
@@ -49,7 +48,7 @@ public class SpringUtils implements ApplicationContextAware, DisposableBean {
     @SuppressWarnings("unchecked")
     public static <T> T getBean(String beanId) {
         try {
-            return (T)context.getBean(beanId);
+            return (T) context.getBean(beanId);
         } catch (Exception ex) {
             log.debug("getBean:" + beanId + "," + ex.getMessage());
         }

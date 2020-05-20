@@ -1,4 +1,3 @@
-
 package org.wangshun.shun.sample.jwt;
 
 import org.mybatis.spring.annotation.MapperScan;

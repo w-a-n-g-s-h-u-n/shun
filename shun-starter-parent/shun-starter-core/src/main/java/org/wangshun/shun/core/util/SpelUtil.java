@@ -12,6 +12,7 @@ import java.lang.reflect.Method;
 
 /**
  * 解析SPEL 表达式
+ *
  * @author huxingnan
  * @date 2018/5/21 10:51
  */
@@ -19,13 +20,14 @@ public class SpelUtil {
 
     /**
      * 支持 #p0 参数索引的表达式解析
+     *
      * @param rootObject 根对象,method 所在的对象
-     * @param spel 表达式
-     * @param method ，目标方法
-     * @param args 方法入参
+     * @param spel       表达式
+     * @param method     ，目标方法
+     * @param args       方法入参
      * @return 解析后的字符串
      */
-    public static String parse(Object rootObject,String spel, Method method, Object[] args) {
+    public static String parse(Object rootObject, String spel, Method method, Object[] args) {
         if (StrUtil.isBlank(spel)) {
             return StrUtil.EMPTY;
         }
@@ -39,7 +41,7 @@ public class SpelUtil {
         //使用SPEL进行key的解析
         ExpressionParser parser = new SpelExpressionParser();
         //SPEL上下文
-        StandardEvaluationContext context = new MethodBasedEvaluationContext(rootObject,method,args,u);
+        StandardEvaluationContext context = new MethodBasedEvaluationContext(rootObject, method, args, u);
         //把方法参数放入SPEL上下文中
         for (int i = 0; i < paraNameArr.length; i++) {
             context.setVariable(paraNameArr[i], args[i]);

@@ -1,26 +1,17 @@
- package org.wangshun.shun.sample.jwt.controller;
+package org.wangshun.shun.sample.jwt.controller;
 
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.wangshun.shun.core.exception.ServiceException;
 import org.wangshun.shun.core.http.R;
 import org.wangshun.shun.sample.jwt.entity.PO.SysUser;
 import org.wangshun.shun.sample.jwt.service.UserService;
 
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-
 @RestController
 @RequestMapping("/user")
- public class UserController {
+public class UserController {
     @Autowired
     private UserService userService;
 
@@ -47,7 +38,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 
     @GetMapping("/list")
     public R list(@RequestParam(defaultValue = "1") long current, @RequestParam(defaultValue = "10") long size,
-        SysUser user) {
+                  SysUser user) {
         return R.success(userService.page(new Page<>(current, size), Wrappers.query(user)));
     }
 

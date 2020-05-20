@@ -1,14 +1,12 @@
 package org.wangshun.shun.db.mp.objecthandler;
 
-import java.time.Instant;
-
+import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
+import lombok.SneakyThrows;
 import org.apache.ibatis.reflection.MetaObject;
 import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationToken;
 import org.wangshun.shun.security.util.SecurityUtils;
 
-import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
-
-import lombok.SneakyThrows;
+import java.time.Instant;
 
 public class OAuthMetaObjectHandler implements MetaObjectHandler {
 

@@ -10,8 +10,7 @@
 
 package org.wangshun.shun.sso.jwt;
 
-import java.util.List;
-
+import lombok.AllArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest;
@@ -23,9 +22,9 @@ import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
-
-import lombok.AllArgsConstructor;
 import reactor.core.publisher.Mono;
+
+import java.util.List;
 
 /**
  * An implementation of an {@link ReactiveOAuth2UserService} that supports standard OAuth 2.0 Provider's.
@@ -35,11 +34,11 @@ import reactor.core.publisher.Mono;
  * <b>NOTE:</b> Attribute names are <b>not</b> standardized between providers and therefore will vary. Please consult the provider's API documentation for the set of supported user attribute names.
  *
  * @author Rob Winch
- * @since 5.1
  * @see ReactiveOAuth2UserService
  * @see OAuth2UserRequest
  * @see OAuth2User
  * @see DefaultOAuth2User
+ * @since 5.1
  */
 @AllArgsConstructor
 public class JwtReactiveOAuth2UserService implements ReactiveOAuth2UserService<OAuth2UserRequest, OAuth2User> {

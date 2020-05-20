@@ -1,4 +1,4 @@
- package org.wangshun.shun.sample.curd.enums;
+package org.wangshun.shun.sample.curd.enums;
 
 import com.baomidou.mybatisplus.core.enums.IEnum;
 

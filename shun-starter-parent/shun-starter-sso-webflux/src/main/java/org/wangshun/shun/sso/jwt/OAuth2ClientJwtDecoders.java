@@ -1,8 +1,8 @@
 package org.wangshun.shun.sso.jwt;
 
-import java.util.HashMap;
-
 import org.springframework.security.oauth2.jwt.ReactiveJwtDecoder;
+
+import java.util.HashMap;
 
 public class OAuth2ClientJwtDecoders extends HashMap<String, ReactiveJwtDecoder> {
 

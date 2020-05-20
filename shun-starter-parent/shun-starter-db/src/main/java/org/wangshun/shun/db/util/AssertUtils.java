@@ -1,10 +1,9 @@
 package org.wangshun.shun.db.util;
 
-import org.wangshun.shun.core.exception.ServiceException;
-
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.core.toolkit.support.SFunction;
+import org.wangshun.shun.core.exception.ServiceException;
 
 public class AssertUtils extends org.wangshun.shun.core.util.AssertUtils {
     public static <T, C> C columnNotUsed(BaseMapper<T> baseMapper, T entity, String label, SFunction<T, C> function, boolean nullable, T oldEntity) {
@@ -17,7 +16,7 @@ public class AssertUtils extends org.wangshun.shun.core.util.AssertUtils {
             return null;
         }
         int count = baseMapper.selectCount(Wrappers.<T>lambdaQuery()//
-            .eq(function, value));
+                .eq(function, value));
         if (count > 0) {
             throw new ServiceException(label + value + "已被使用");
         }

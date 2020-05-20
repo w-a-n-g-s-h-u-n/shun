@@ -49,7 +49,7 @@ public class MvcAutoConfiguration implements WebMvcConfigurer {
             @Override
             public LocalDate convert(String source) {
                 return LocalDateTime.ofInstant(Instant.ofEpochMilli(Long.valueOf(source)), ZoneId.systemDefault())
-                    .toLocalDate();
+                        .toLocalDate();
             }
         };
     }

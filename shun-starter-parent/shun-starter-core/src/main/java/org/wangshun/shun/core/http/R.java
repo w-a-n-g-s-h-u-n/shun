@@ -1,7 +1,6 @@
 package org.wangshun.shun.core.http;
 
 import com.alibaba.fastjson.JSONObject;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -28,6 +27,7 @@ public class R {
         }
         return error();
     }
+
     public static R success() {
         return new R(CODE_SUCCESS, MSG_SUCCESS, DATA_SUCCESS);
     }

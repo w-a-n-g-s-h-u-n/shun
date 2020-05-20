@@ -1,8 +1,6 @@
 package org.wangshun.shun.sample.jwt.config;
 
-import java.io.IOException;
-import java.io.Writer;
-
+import com.nimbusds.jose.JOSEException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
@@ -17,7 +15,8 @@ import org.wangshun.shun.core.http.R;
 import org.wangshun.shun.core.prop.PermitUrlProperties;
 import org.wangshun.shun.sample.jwt.util.JwtHelper;
 
-import com.nimbusds.jose.JOSEException;
+import java.io.IOException;
+import java.io.Writer;
 
 @Configuration
 @EnableGlobalMethodSecurity(jsr250Enabled = true, prePostEnabled = true, securedEnabled = true)

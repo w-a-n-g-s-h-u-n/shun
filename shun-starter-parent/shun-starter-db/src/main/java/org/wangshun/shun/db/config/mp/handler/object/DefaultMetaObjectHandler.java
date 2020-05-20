@@ -1,12 +1,9 @@
 package org.wangshun.shun.db.config.mp.handler.object;
 
-import java.time.Instant;
-
+import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import org.apache.ibatis.reflection.MetaObject;
 
-import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
-
-import lombok.SneakyThrows;
+import java.time.Instant;
 
 public class DefaultMetaObjectHandler implements MetaObjectHandler {
     private final String createTime = "createTime";

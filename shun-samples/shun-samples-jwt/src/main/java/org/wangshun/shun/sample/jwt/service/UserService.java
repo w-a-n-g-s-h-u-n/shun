@@ -1,14 +1,13 @@
 package org.wangshun.shun.sample.jwt.service;
 
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.wangshun.shun.sample.jwt.dao.UserDao;
 import org.wangshun.shun.sample.jwt.entity.PO.SysUser;
-
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 
 @Service
 public class UserService extends ServiceImpl<UserDao, SysUser> implements UserDetailsService {

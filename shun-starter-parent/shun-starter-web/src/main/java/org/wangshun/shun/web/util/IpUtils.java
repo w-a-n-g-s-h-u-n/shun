@@ -1,5 +1,17 @@
 package org.wangshun.shun.web.util;
 
+import cn.hutool.core.codec.Base64;
+import cn.hutool.core.util.CharsetUtil;
+import com.alibaba.fastjson.JSONObject;
+import lombok.SneakyThrows;
+import lombok.experimental.UtilityClass;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.server.reactive.ServerHttpRequest;
+import org.springframework.util.StringUtils;
+import org.wangshun.shun.core.util.SpringUtils;
+
+import javax.servlet.http.HttpServletRequest;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -8,23 +20,9 @@ import java.net.InetAddress;
 import java.net.URL;
 import java.net.UnknownHostException;
 
-import javax.servlet.http.HttpServletRequest;
-
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.server.reactive.ServerHttpRequest;
-import org.springframework.util.StringUtils;
-import org.wangshun.shun.core.util.SpringUtils;
-
-import com.alibaba.fastjson.JSONObject;
-
-import cn.hutool.core.codec.Base64;
-import cn.hutool.core.util.CharsetUtil;
-import lombok.SneakyThrows;
-import lombok.experimental.UtilityClass;
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * IP
+ *
  * @Author: zwen
  * @Date: 2019/7/20 15:21
  */
@@ -32,11 +30,12 @@ import lombok.extern.slf4j.Slf4j;
 @UtilityClass
 public class IpUtils {
     private static String VALIDE_IP_REGEX = "([1-9]|[1-9]\\d|1\\d{2}|2[0-4]\\d|25[0-5])(\\.(\\d|[1-9]\\d|1\\d{2}|2[0-4]\\d|25[0-5])){3}";
-    private  final String BASIC_ = "Basic ";
-    private  final String UNKNOWN = "unknown";
-    private  final String LOCAL_IP_ADDR = "127.0.0.1";
+    private final String BASIC_ = "Basic ";
+    private final String UNKNOWN = "unknown";
+    private final String LOCAL_IP_ADDR = "127.0.0.1";
 
     private static String ALLOWABLE_IP_REGEX = null;
+
     static {
         StringBuffer sb = new StringBuffer();
         sb.append("(127[\\.]0[\\.]0[\\.]1)|")
@@ -53,6 +52,7 @@ public class IpUtils {
 
     /**
      * 正确的ip地址
+     *
      * @param ip
      * @return
      */
@@ -62,6 +62,7 @@ public class IpUtils {
 
     /**
      * 是否是局域网中的ip
+     *
      * @param ip
      * @return
      */
@@ -71,6 +72,7 @@ public class IpUtils {
 
     /**
      * 获取本机的ip地址
+     *
      * @return
      */
     public static String getLocalIp() {
@@ -112,7 +114,7 @@ public class IpUtils {
     public static String getIpAddr(HttpServletRequest request) {
         String ip = request.getHeader("x-forwarded-for");
         try {
-            if (ip == null || ip.length() == 0 ||UNKNOWN.equalsIgnoreCase(ip)) {
+            if (ip == null || ip.length() == 0 || UNKNOWN.equalsIgnoreCase(ip)) {
                 ip = request.getHeader("Proxy-Client-IP");
             }
             if (ip == null || ip.length() == 0 || UNKNOWN.equalsIgnoreCase(ip)) {
@@ -147,12 +149,13 @@ public class IpUtils {
     /**
      * 获取当前IP所在城市[BAIDU]
      * 只在生产环境使用
+     *
      * @param request
      * @return
      */
     public static JSONObject getAreaByIp(HttpServletRequest request) {
         JSONObject mapData = null;
-        if ("prod".equalsIgnoreCase(SpringUtils.getCtxEnvironment())){
+        if ("prod".equalsIgnoreCase(SpringUtils.getCtxEnvironment())) {
             String httpUrl = "http://apis.baidu.com/apistore/iplookupservice/iplookup";
             String httpArg = getIpAddr(request);// 获取IP
             if (!StringUtils.isEmpty(httpArg)) {
@@ -180,13 +183,13 @@ public class IpUtils {
                         if (log.isInfoEnabled()) log.info("baidu response result : {}", result);
                         JSONObject jsonResult = JSONObject.parseObject(result);
                         if (jsonResult != null) {
-                            if (jsonResult.get("errNum")!=null&&Integer.parseInt(jsonResult.get("errNum").toString())<1&&jsonResult.get("errMsg")!=null&&("SUCCESS".equalsIgnoreCase(jsonResult.get("errMsg").toString()) || "SUCCESS".equalsIgnoreCase(jsonResult.get("retMsg").toString()))) {
+                            if (jsonResult.get("errNum") != null && Integer.parseInt(jsonResult.get("errNum").toString()) < 1 && jsonResult.get("errMsg") != null && ("SUCCESS".equalsIgnoreCase(jsonResult.get("errMsg").toString()) || "SUCCESS".equalsIgnoreCase(jsonResult.get("retMsg").toString()))) {
                                 mapData = jsonResult.getJSONObject("retData");
                             } else {
                                 log.error("[BAIDU]获取当前IP所属城市出错,开始调用淘宝接口-{}", result);
                                 mapData = getAreaByTaoBaoIp(request);
                             }
-                        }else{
+                        } else {
                             log.error("[BAIDU]获取当前IP所属城市出错-{}", result);
                             mapData = getAreaByTaoBaoIp(request);
                         }
@@ -205,12 +208,13 @@ public class IpUtils {
     /**
      * 获取当前IP所在城市[TAOBAO]
      * 只在生产环境使用
+     *
      * @param request
      * @return
      */
     private static JSONObject getAreaByTaoBaoIp(HttpServletRequest request) {
         JSONObject mapData = null;
-        if ("prod".equalsIgnoreCase(SpringUtils.getCtxEnvironment())){
+        if ("prod".equalsIgnoreCase(SpringUtils.getCtxEnvironment())) {
             String httpUrl = "http://ip.taobao.com/service/getIpInfo.php";
             String httpArg = getIpAddr(request);// 获取IP
             if (!StringUtils.isEmpty(httpArg)) {
@@ -243,7 +247,7 @@ public class IpUtils {
                                 mapData = null;
                                 log.error("[TAOBAO]获取当前IP所属城市出错-{}", result);
                             }
-                        }else{
+                        } else {
                             log.error("[TAOBAO]获取当前IP所属城市出错-{}", result);
                         }
                     }

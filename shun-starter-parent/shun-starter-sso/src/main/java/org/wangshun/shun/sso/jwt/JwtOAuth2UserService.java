@@ -9,8 +9,8 @@
  */
 package org.wangshun.shun.sso.jwt;
 
-import java.util.List;
-
+import cn.hutool.core.util.ArrayUtil;
+import lombok.AllArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.oauth2.client.registration.ClientRegistration;
@@ -24,8 +24,7 @@ import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
 
-import cn.hutool.core.util.ArrayUtil;
-import lombok.AllArgsConstructor;
+import java.util.List;
 
 /**
  * An implementation of an {@link OAuth2UserService} that supports standard OAuth 2.0 Provider's.
@@ -35,11 +34,11 @@ import lombok.AllArgsConstructor;
  * <b>NOTE:</b> Attribute names are <b>not</b> standardized between providers and therefore will vary. Please consult the provider's API documentation for the set of supported user attribute names.
  *
  * @author Joe Grandja
- * @since 5.0
  * @see OAuth2UserService
  * @see OAuth2UserRequest
  * @see OAuth2User
  * @see DefaultOAuth2User
+ * @since 5.0
  */
 @AllArgsConstructor
 public class JwtOAuth2UserService implements OAuth2UserService<OAuth2UserRequest, OAuth2User> {

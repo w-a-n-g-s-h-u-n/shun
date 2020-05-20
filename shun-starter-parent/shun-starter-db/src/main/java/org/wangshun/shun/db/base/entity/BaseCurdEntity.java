@@ -1,14 +1,13 @@
 package org.wangshun.shun.db.base.entity;
 
-import java.time.Instant;
-
-import org.wangshun.shun.core.entity.ICurdEntity;
-
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
+import org.wangshun.shun.core.entity.ICurdEntity;
+
+import java.time.Instant;
 
 public abstract class BaseCurdEntity<T extends BaseCurdEntity<T>> extends BaseDatabaseEntity<T>
-    implements ICurdEntity<T> {
+        implements ICurdEntity<T> {
     protected static final long serialVersionUID = 1L;// serialVersionUID
 
     @TableField(fill = FieldFill.INSERT)
@@ -26,7 +25,7 @@ public abstract class BaseCurdEntity<T extends BaseCurdEntity<T>> extends BaseDa
     @SuppressWarnings("unchecked")
     public T setCreateTime(Instant createTime) {
         this.createTime = createTime;
-        return (T)this;
+        return (T) this;
     }
 
     @Override
@@ -38,6 +37,6 @@ public abstract class BaseCurdEntity<T extends BaseCurdEntity<T>> extends BaseDa
     @SuppressWarnings("unchecked")
     public T setUpdateTime(Instant updateTime) {
         this.updateTime = updateTime;
-        return (T)this;
+        return (T) this;
     }
 }

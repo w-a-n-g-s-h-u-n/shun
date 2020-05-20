@@ -1,4 +1,3 @@
-
 package org.wangshun.shun.sample.curd;
 
 import org.junit.runner.RunWith;

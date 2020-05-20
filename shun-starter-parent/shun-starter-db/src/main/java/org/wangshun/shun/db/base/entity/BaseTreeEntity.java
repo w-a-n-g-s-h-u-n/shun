@@ -1,10 +1,9 @@
 package org.wangshun.shun.db.base.entity;
 
+import cn.hutool.core.comparator.CompareUtil;
 import org.wangshun.shun.core.entity.ITreeEntity;
 
 import java.util.List;
-
-import cn.hutool.core.comparator.CompareUtil;
 
 public class BaseTreeEntity<T extends BaseTreeEntity<T>> extends BaseDatabaseEntity<T> implements ITreeEntity<T> {
     protected static final long serialVersionUID = 1L;// serialVersionUID
@@ -24,7 +23,7 @@ public class BaseTreeEntity<T extends BaseTreeEntity<T>> extends BaseDatabaseEnt
     @Override
     public T setParent(T parent) {
         this.parent = parent;
-        return (T)this;
+        return (T) this;
     }
 
     @Override
@@ -36,7 +35,7 @@ public class BaseTreeEntity<T extends BaseTreeEntity<T>> extends BaseDatabaseEnt
     @Override
     public T setChildren(List<T> children) {
         this.children = children;
-        return (T)this;
+        return (T) this;
     }
 
     @Override
@@ -48,7 +47,7 @@ public class BaseTreeEntity<T extends BaseTreeEntity<T>> extends BaseDatabaseEnt
     @Override
     public T setSort(Integer sort) {
         this.sort = sort;
-        return (T)this;
+        return (T) this;
     }
 
     @Override
@@ -60,7 +59,7 @@ public class BaseTreeEntity<T extends BaseTreeEntity<T>> extends BaseDatabaseEnt
     @Override
     public T setIsLeaf(Boolean isLeaf) {
         this.isLeaf = isLeaf;
-        return (T)this;
+        return (T) this;
     }
 
     @Override

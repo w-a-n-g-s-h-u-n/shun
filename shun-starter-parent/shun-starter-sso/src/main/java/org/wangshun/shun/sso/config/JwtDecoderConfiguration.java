@@ -43,6 +43,6 @@ public class JwtDecoderConfiguration {
 
     private NimbusJwtDecoder createJwtDecoder(String jwkSetUri) {
         return NimbusJwtDecoder.withJwkSetUri(jwkSetUri)
-            .restOperations(loadBalanced ? lbRestTemplate : builder.build()).build();
+                .restOperations(loadBalanced ? lbRestTemplate : builder.build()).build();
     }
 }

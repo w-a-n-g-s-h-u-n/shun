@@ -1,5 +1,6 @@
 package org.wangshun.shun.core.util;
 
+import cn.hutool.core.collection.CollUtil;
 import org.wangshun.shun.core.entity.ITreeEntity;
 
 import java.util.Collection;
@@ -9,11 +10,8 @@ import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-import cn.hutool.core.collection.CollUtil;
-
 public class TreeUtils {
     /**
-     * 
      * 从集合转换为树结构
      */
     public static <T extends ITreeEntity<T>> List<T> converToTree(Collection<T> nodes) {
@@ -31,7 +29,6 @@ public class TreeUtils {
     }
 
     /**
-     * 
      * 获取所有子节点 不加上自己
      */
     private static <T extends ITreeEntity<T>> List<T> getAllChildren(Collection<T> nodes) {
@@ -39,7 +36,6 @@ public class TreeUtils {
     }
 
     /**
-     * 
      * 获取所有子节点 不加上自己
      */
 
@@ -50,7 +46,6 @@ public class TreeUtils {
     }
 
     /**
-     * 
      * 获取所有子节点 加上自己
      */
     public static <T extends ITreeEntity<T>> List<T> getAllNode(Collection<T> nodes) {
@@ -58,7 +53,6 @@ public class TreeUtils {
     }
 
     /**
-     * 
      * 获取所有子节点 加上自己
      */
     public static <T extends ITreeEntity<T>> List<T> getAllNode(T node) {
@@ -68,7 +62,6 @@ public class TreeUtils {
     }
 
     /**
-     * 
      * 填充子节点的level、sort、isLeaf属性
      */
     public static <T extends ITreeEntity<T>> void fill(T node) {
@@ -86,7 +79,6 @@ public class TreeUtils {
     }
 
     /**
-     * 
      * 填充子节点的sort、isLeaf属性
      */
     public static <T extends ITreeEntity<T>> void fill(List<T> nodes) {
@@ -95,7 +87,7 @@ public class TreeUtils {
 
     private static <T extends ITreeEntity<T>> Integer getMaxSort(T node) {
         return node.getChildren().parallelStream().map(ITreeEntity::getSort)
-            .max(Comparator.nullsFirst(Comparator.naturalOrder()))
-            .orElse(0);
+                .max(Comparator.nullsFirst(Comparator.naturalOrder()))
+                .orElse(0);
     }
 }

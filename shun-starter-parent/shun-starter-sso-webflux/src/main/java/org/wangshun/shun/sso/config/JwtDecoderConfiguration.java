@@ -19,7 +19,7 @@ public class JwtDecoderConfiguration {
     @ConditionalOnProperty(name = "spring.security.oauth2.resourceserver.jwt.jwk-set-uri")
     public ReactiveJwtDecoder jwtDecoder(OAuth2ResourceServerProperties properties, WebClient lbWebClient) {
         return NimbusReactiveJwtDecoder.withJwkSetUri(properties.getJwt().getJwkSetUri()).webClient(lbWebClient)
-            .build();
+                .build();
     }
 
     @Bean
@@ -27,7 +27,7 @@ public class JwtDecoderConfiguration {
         OAuth2ClientJwtDecoders jwtDecoders = new OAuth2ClientJwtDecoders();
         properties.getProvider().forEach((key, provider) -> {
             jwtDecoders.put(provider.getJwkSetUri(),
-                NimbusReactiveJwtDecoder.withJwkSetUri(provider.getJwkSetUri()).webClient(lbWebClient).build());
+                    NimbusReactiveJwtDecoder.withJwkSetUri(provider.getJwkSetUri()).webClient(lbWebClient).build());
         });
         return jwtDecoders;
     }

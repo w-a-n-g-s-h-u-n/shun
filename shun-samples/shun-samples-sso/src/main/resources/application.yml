@@ -4,7 +4,7 @@ spring:
       client:
         provider:
           auth:
-#            user-info-uri: http://login.wangshun.org/userinfo
+            #            user-info-uri: http://login.wangshun.org/userinfo
             jwk-set-uri: http://login.wangshun.org/.well-known/jwks.json
             authorization-uri: http://login.wangshun.org/oauth/authorize
             token-uri: http://login.wangshun.org/oauth/token

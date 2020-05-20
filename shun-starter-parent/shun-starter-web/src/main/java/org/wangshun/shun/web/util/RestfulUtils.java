@@ -1,18 +1,15 @@
 package org.wangshun.shun.web.util;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-
-import javax.servlet.http.HttpServletResponse;
-
+import cn.hutool.core.util.CharsetUtil;
+import com.alibaba.fastjson.JSONObject;
 import org.springframework.http.CacheControl;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
-
-import com.alibaba.fastjson.JSONObject;
 import org.wangshun.shun.core.http.R;
 
-import cn.hutool.core.util.CharsetUtil;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 public class RestfulUtils {
     public static void writeDataToResponse(HttpServletResponse response, R data) {

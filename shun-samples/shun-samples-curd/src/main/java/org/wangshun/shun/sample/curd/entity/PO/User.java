@@ -1,11 +1,10 @@
- package org.wangshun.shun.sample.curd.entity.PO;
+package org.wangshun.shun.sample.curd.entity.PO;
 
-import java.time.Instant;
-
+import lombok.Data;
 import org.wangshun.shun.db.base.entity.BaseCurdEntity;
 import org.wangshun.shun.sample.curd.enums.GenderEnum;
 
-import lombok.Data;
+import java.time.Instant;
 
 @Data
 public class User extends BaseCurdEntity<User> {

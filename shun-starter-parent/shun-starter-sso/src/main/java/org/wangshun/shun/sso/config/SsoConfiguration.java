@@ -1,5 +1,6 @@
 package org.wangshun.shun.sso.config;
 
+import lombok.AllArgsConstructor;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -10,8 +11,6 @@ import org.springframework.security.web.server.SecurityWebFilterChain;
 import org.springframework.web.cors.CorsUtils;
 import org.wangshun.shun.sso.jwt.JwtOAuth2UserService;
 import org.wangshun.shun.sso.jwt.OAuth2ClientJwtDecoders;
-
-import lombok.AllArgsConstructor;
 
 @Configuration
 @EnableWebSecurity

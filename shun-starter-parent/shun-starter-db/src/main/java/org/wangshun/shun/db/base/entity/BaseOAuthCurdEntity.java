@@ -1,12 +1,11 @@
 package org.wangshun.shun.db.base.entity;
 
-import org.wangshun.shun.core.entity.IOAuthCurdEntity;
-
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
+import org.wangshun.shun.core.entity.IOAuthCurdEntity;
 
 public abstract class BaseOAuthCurdEntity<T extends BaseOAuthCurdEntity<T>> extends BaseSecurityCurdEntity<T>
-    implements IOAuthCurdEntity<T> {
+        implements IOAuthCurdEntity<T> {
     protected static final long serialVersionUID = 1L;// serialVersionUID
 
     @TableField(fill = FieldFill.INSERT)
@@ -24,9 +23,8 @@ public abstract class BaseOAuthCurdEntity<T extends BaseOAuthCurdEntity<T>> exte
     @SuppressWarnings("unchecked")
     public T setCreateClient(String createClient) {
         this.createClient = createClient;
-        return (T)this;
+        return (T) this;
     }
-
 
 
     @Override
@@ -38,7 +36,7 @@ public abstract class BaseOAuthCurdEntity<T extends BaseOAuthCurdEntity<T>> exte
     @SuppressWarnings("unchecked")
     public T setUpdateClient(String updateClient) {
         this.updateClient = updateClient;
-        return (T)this;
+        return (T) this;
     }
 
 

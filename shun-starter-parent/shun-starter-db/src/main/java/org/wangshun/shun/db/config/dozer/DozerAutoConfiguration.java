@@ -1,7 +1,7 @@
 package org.wangshun.shun.db.config.dozer;
 
-import java.io.IOException;
-
+import com.github.dozermapper.core.Mapper;
+import com.github.dozermapper.spring.DozerBeanMapperFactoryBean;
 import org.springframework.boot.autoconfigure.AutoConfigureBefore;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -9,8 +9,7 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.github.dozermapper.core.Mapper;
-import com.github.dozermapper.spring.DozerBeanMapperFactoryBean;
+import java.io.IOException;
 
 /**
  * Dozer spring auto configuration.

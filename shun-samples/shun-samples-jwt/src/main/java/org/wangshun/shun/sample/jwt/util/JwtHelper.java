@@ -1,10 +1,5 @@
 package org.wangshun.shun.sample.jwt.util;
 
-import java.security.interfaces.RSAPrivateKey;
-import java.security.interfaces.RSAPublicKey;
-import java.time.Instant;
-import java.time.temporal.ChronoUnit;
-
 import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 import com.nimbusds.jose.JOSEException;
 import com.nimbusds.jose.JWSAlgorithm;
@@ -15,6 +10,10 @@ import com.nimbusds.jose.jwk.gen.RSAKeyGenerator;
 import com.nimbusds.jwt.JWTClaimsSet;
 import com.nimbusds.jwt.SignedJWT;
 
+import java.security.interfaces.RSAPrivateKey;
+import java.security.interfaces.RSAPublicKey;
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
 public class JwtHelper {
@@ -23,6 +22,7 @@ public class JwtHelper {
     private static final RSAKey rootKey;
     private static final RSAPrivateKey privateKey;
     private static final RSAPublicKey publicKey;
+
     static {
         try {
             header = new JWSHeader.Builder(JWSAlgorithm.RS256).build();
@@ -36,10 +36,10 @@ public class JwtHelper {
 
     public static String sign(String subject) throws JOSEException {
         SignedJWT signedJWT = new SignedJWT(header, new JWTClaimsSet.Builder()//
-            .subject(subject)//
-            .expirationTime(Date.from(Instant.now().plus(1, ChronoUnit.DAYS)))//
-            .jwtID(IdWorker.getIdStr())//
-            .build());
+                .subject(subject)//
+                .expirationTime(Date.from(Instant.now().plus(1, ChronoUnit.DAYS)))//
+                .jwtID(IdWorker.getIdStr())//
+                .build());
         signedJWT.sign(new RSASSASigner(privateKey));
         return signedJWT.serialize();
     }

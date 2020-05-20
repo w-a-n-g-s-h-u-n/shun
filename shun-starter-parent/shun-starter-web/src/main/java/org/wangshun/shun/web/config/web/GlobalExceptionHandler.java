@@ -1,5 +1,6 @@
 package org.wangshun.shun.web.config.web;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.ConversionNotSupportedException;
 import org.springframework.beans.TypeMismatchException;
 import org.springframework.http.HttpHeaders;
@@ -25,8 +26,6 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 import org.springframework.web.util.WebUtils;
 import org.wangshun.shun.core.exception.ServiceException;
 import org.wangshun.shun.core.http.R;
-
-import lombok.extern.slf4j.Slf4j;
 
 @RestControllerAdvice
 @Slf4j

@@ -1,5 +1,6 @@
 package org.wangshun.shun.sso.config;
 
+import lombok.AllArgsConstructor;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
@@ -14,8 +15,6 @@ import org.springframework.security.web.server.SecurityWebFilterChain;
 import org.springframework.web.reactive.function.client.WebClient;
 import org.wangshun.shun.sso.jwt.JwtReactiveOAuth2UserService;
 import org.wangshun.shun.sso.jwt.OAuth2ClientJwtDecoders;
-
-import lombok.AllArgsConstructor;
 
 @Configuration
 @AutoConfigureAfter(JwtDecoderConfiguration.class)
@@ -45,10 +44,10 @@ public class WebSecurityConfiguration {
 
     private ServerHttpSecurity getSsoConfiguration(ServerHttpSecurity http, OAuth2ClientJwtDecoders jwtDecoders, WebClient webClient) {
         WebClientReactiveAuthorizationCodeTokenResponseClient accessTokenResponseClient =
-            new WebClientReactiveAuthorizationCodeTokenResponseClient();
+                new WebClientReactiveAuthorizationCodeTokenResponseClient();
         accessTokenResponseClient.setWebClient(webClient);
         return
-        // @formatter:off
+                // @formatter:off
         http.authorizeExchange()
             .pathMatchers("/error","/code","/auth/**","/login/**","/actuator/**")
                 .permitAll()

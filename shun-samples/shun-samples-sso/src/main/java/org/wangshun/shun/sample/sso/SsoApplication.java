@@ -1,8 +1,4 @@
-
 package org.wangshun.shun.sample.sso;
-
-import java.util.Map;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -16,6 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 import org.wangshun.shun.core.http.R;
 import org.wangshun.shun.core.util.SpringUtils;
 import org.wangshun.shun.sso.entity.LoginProvider;
+
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @SpringBootApplication
 @RestController

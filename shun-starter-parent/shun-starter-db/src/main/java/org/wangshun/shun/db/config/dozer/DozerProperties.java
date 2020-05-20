@@ -9,15 +9,15 @@
  */
 package org.wangshun.shun.db.config.dozer;
 
-import java.io.IOException;
-import java.util.Arrays;
-import java.util.Optional;
-import java.util.stream.Stream;
-
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.core.io.support.ResourcePatternResolver;
+
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.Optional;
+import java.util.stream.Stream;
 
 /**
  * Configuration properties for Dozer.
@@ -29,7 +29,7 @@ public class DozerProperties {
     /**
      * Mapping files configuration. For example "classpath:*.dozer.xml".
      */
-    private String[] mappingFiles = new String[] {};
+    private String[] mappingFiles = new String[]{};
 
     /**
      * Mapping files configuration.

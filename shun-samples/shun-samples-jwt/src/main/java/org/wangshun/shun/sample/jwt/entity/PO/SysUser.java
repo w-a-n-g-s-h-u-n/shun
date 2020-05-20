@@ -1,17 +1,15 @@
 package org.wangshun.shun.sample.jwt.entity.PO;
 
+import cn.hutool.core.collection.CollUtil;
+import com.baomidou.mybatisplus.annotation.TableField;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.security.core.CredentialsContainer;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.wangshun.shun.db.base.entity.BaseCurdEntity;
 
-import com.baomidou.mybatisplus.annotation.TableField;
-
 import java.util.List;
-
-import cn.hutool.core.collection.CollUtil;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 /**
  * 用户
@@ -27,25 +25,39 @@ public class SysUser extends BaseCurdEntity<SysUser> implements CredentialsConta
         this.username = username;
     }
 
-    /** serialVersionUID */
+    /**
+     * serialVersionUID
+     */
     private static final long serialVersionUID = 1L;
 
-    /** 登录名 */
+    /**
+     * 登录名
+     */
     protected String username;
 
-    /** 邮箱 */
+    /**
+     * 邮箱
+     */
     private String email;
 
-    /** 手机号 */
+    /**
+     * 手机号
+     */
     private String mobileNumber;
 
-    /** 密码 */
+    /**
+     * 密码
+     */
     protected String password;
 
-    /** 名称 */
+    /**
+     * 名称
+     */
     private String name;
 
-    /** 呢称 */
+    /**
+     * 呢称
+     */
     private String nick;
 
     /**
@@ -68,7 +80,8 @@ public class SysUser extends BaseCurdEntity<SysUser> implements CredentialsConta
         this.password = null;
     }
 
-    public static class SysUserTypeHandler extends BaseDatabaseEntityTypeHandler<SysUser> {}
+    public static class SysUserTypeHandler extends BaseDatabaseEntityTypeHandler<SysUser> {
+    }
 
     @Override
     public boolean isAccountNonExpired() {

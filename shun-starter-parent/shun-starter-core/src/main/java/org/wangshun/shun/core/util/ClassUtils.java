@@ -1,4 +1,3 @@
-
 package org.wangshun.shun.core.util;
 
 import lombok.experimental.UtilityClass;
@@ -24,7 +23,7 @@ public class ClassUtils extends org.springframework.util.ClassUtils {
     /**
      * 获取方法参数信息
      *
-     * @param constructor 构造器
+     * @param constructor    构造器
      * @param parameterIndex 参数序号
      * @return {MethodParameter}
      */
@@ -37,7 +36,7 @@ public class ClassUtils extends org.springframework.util.ClassUtils {
     /**
      * 获取方法参数信息
      *
-     * @param method 方法
+     * @param method         方法
      * @param parameterIndex 参数序号
      * @return {MethodParameter}
      */
@@ -50,9 +49,9 @@ public class ClassUtils extends org.springframework.util.ClassUtils {
     /**
      * 获取Annotation
      *
-     * @param method Method
+     * @param method         Method
      * @param annotationType 注解类
-     * @param <A> 泛型标记
+     * @param <A>            泛型标记
      * @return {Annotation}
      */
     public <A extends Annotation> A getAnnotation(Method method, Class<A> annotationType) {
@@ -63,7 +62,8 @@ public class ClassUtils extends org.springframework.util.ClassUtils {
         // If we are dealing with method with generic parameters, find the original method.
         specificMethod = BridgeMethodResolver.findBridgedMethod(specificMethod);
         // 先找方法，再找方法上的类
-        A annotation = AnnotatedElementUtils.findMergedAnnotation(specificMethod, annotationType);;
+        A annotation = AnnotatedElementUtils.findMergedAnnotation(specificMethod, annotationType);
+        ;
         if (null != annotation) {
             return annotation;
         }
@@ -74,9 +74,9 @@ public class ClassUtils extends org.springframework.util.ClassUtils {
     /**
      * 获取Annotation
      *
-     * @param handlerMethod HandlerMethod
+     * @param handlerMethod  HandlerMethod
      * @param annotationType 注解类
-     * @param <A> 泛型标记
+     * @param <A>            泛型标记
      * @return {Annotation}
      */
     public <A extends Annotation> A getAnnotation(HandlerMethod handlerMethod, Class<A> annotationType) {

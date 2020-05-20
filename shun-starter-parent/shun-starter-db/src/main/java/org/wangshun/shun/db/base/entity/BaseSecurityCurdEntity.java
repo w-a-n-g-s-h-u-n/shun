@@ -1,12 +1,11 @@
 package org.wangshun.shun.db.base.entity;
 
-import org.wangshun.shun.core.entity.ISecurityCurdEntity;
-
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
+import org.wangshun.shun.core.entity.ISecurityCurdEntity;
 
 public abstract class BaseSecurityCurdEntity<T extends BaseSecurityCurdEntity<T>> extends BaseCurdEntity<T>
-    implements ISecurityCurdEntity<T> {
+        implements ISecurityCurdEntity<T> {
     protected static final long serialVersionUID = 1L;// serialVersionUID
 
     @TableField(fill = FieldFill.INSERT)
@@ -24,7 +23,7 @@ public abstract class BaseSecurityCurdEntity<T extends BaseSecurityCurdEntity<T>
     @SuppressWarnings("unchecked")
     public T setCreateUser(String createUser) {
         this.createUser = createUser;
-        return (T)this;
+        return (T) this;
     }
 
     @Override
@@ -36,7 +35,7 @@ public abstract class BaseSecurityCurdEntity<T extends BaseSecurityCurdEntity<T>
     @SuppressWarnings("unchecked")
     public T setUpdateUser(String updateUser) {
         this.updateUser = updateUser;
-        return (T)this;
+        return (T) this;
     }
 
 }

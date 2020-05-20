@@ -7,7 +7,6 @@ import org.springframework.security.oauth2.server.resource.authentication.JwtAut
 
 /**
  * 安全工具类
- *
  */
 public class SecurityUtils {
     static final String BEARER = "Bearer ";
@@ -28,7 +27,7 @@ public class SecurityUtils {
             return null;
         }
         if (authentication instanceof JwtAuthenticationToken) {
-            JwtAuthenticationToken jwtAuthenticationToken = (JwtAuthenticationToken)authentication;
+            JwtAuthenticationToken jwtAuthenticationToken = (JwtAuthenticationToken) authentication;
             return jwtAuthenticationToken;
         }
         return null;
@@ -52,7 +51,7 @@ public class SecurityUtils {
      * 获取ClientId
      */
     public static String getClientId(JwtAuthenticationToken jwtAuthenticationToken) {
-        return (String)jwtAuthenticationToken.getTokenAttributes().getOrDefault("client_id", "");
+        return (String) jwtAuthenticationToken.getTokenAttributes().getOrDefault("client_id", "");
     }
 
     /**

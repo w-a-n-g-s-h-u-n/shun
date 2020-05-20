@@ -1,23 +1,15 @@
 package org.wangshun.shun.db.base;
 
-import cn.hutool.core.bean.BeanUtil;
+import cn.hutool.core.collection.CollUtil;
+import cn.hutool.core.util.StrUtil;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import org.springframework.beans.BeanUtils;
-import org.wangshun.shun.db.base.entity.BaseDatabaseEntity;
-
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.metadata.OrderItem;
-
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-
-import cn.hutool.core.collection.CollUtil;
-import cn.hutool.core.map.MapUtil;
-import cn.hutool.core.util.StrUtil;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.Data;
+
+import java.util.List;
 
 @Data
 public class PageCondition<T> {
@@ -27,8 +19,8 @@ public class PageCondition<T> {
     private String desc;
     private String orders;
 
-    private long size;
-    private long current;
+    private long size = 10;
+    private long current = 1;
 
     public List<OrderItem> orders() {
         List<OrderItem> orderList = CollUtil.newLinkedList();

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>shun-dependencies</artifactId>
@@ -13,11 +14,11 @@
         <groupId>org.springframework.cloud</groupId>
         <artifactId>spring-cloud-dependencies</artifactId>
         <version>Hoxton.SR4</version>
-        <relativePath />
+        <relativePath/>
     </parent>
 
     <properties>
-        <revision>2.3.0</revision>
+        <revision>2.4.0-SNAPSHOT</revision>
 
         <spring-boot.version>2.2.1.RELEASE</spring-boot.version>
         <spring-boot-admin.version>2.2.1</spring-boot-admin.version>
@@ -206,41 +207,41 @@
     </dependencyManagement>
     <build>
         <plugins>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>flatten-maven-plugin</artifactId>
-				<inherited>true</inherited>
-				<executions>
-					<execution>
-						<!-- Flatten and simplify our own POM for install/deploy -->
-						<id>flatten</id>
-						<phase>process-resources</phase>
-						<goals>
-							<goal>flatten</goal>
-						</goals>
-						<configuration>
-							<updatePomFile>true</updatePomFile>
-							<flattenMode>bom</flattenMode>
-							<pomElements>
-								<parent>expand</parent>
-								<properties>remove</properties>
-								<pluginManagement>keep</pluginManagement>
-								<dependencyManagement>interpolate</dependencyManagement>
-								<repositories>remove</repositories>
-								<distributionManagement>remove</distributionManagement>
-							</pomElements>
-						</configuration>
-					</execution>
-					<execution>
-						<id>flatten-clean</id>
-						<phase>clean</phase>
-						<goals>
-							<goal>clean</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-		</plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>flatten-maven-plugin</artifactId>
+                <inherited>true</inherited>
+                <executions>
+                    <execution>
+                        <!-- Flatten and simplify our own POM for install/deploy -->
+                        <id>flatten</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>flatten</goal>
+                        </goals>
+                        <configuration>
+                            <updatePomFile>true</updatePomFile>
+                            <flattenMode>bom</flattenMode>
+                            <pomElements>
+                                <parent>expand</parent>
+                                <properties>remove</properties>
+                                <pluginManagement>keep</pluginManagement>
+                                <dependencyManagement>interpolate</dependencyManagement>
+                                <repositories>remove</repositories>
+                                <distributionManagement>remove</distributionManagement>
+                            </pomElements>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>flatten-clean</id>
+                        <phase>clean</phase>
+                        <goals>
+                            <goal>clean</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
     </build>
 
     <distributionManagement>

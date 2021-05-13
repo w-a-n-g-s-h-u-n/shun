@@ -12,7 +12,7 @@
         <groupId>org.wangshun.shun</groupId>
         <artifactId>shun-starter-parent</artifactId>
         <version>${revision}</version>
-        <relativePath>../</relativePath>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <dependencies>

@@ -23,14 +23,15 @@
         <spring-boot.version>2.2.1.RELEASE</spring-boot.version>
         <spring-boot-admin.version>2.2.1</spring-boot-admin.version>
         <fastjson.version>1.2.58</fastjson.version>
-        <mybatis-plus.version>3.3.1.tmp</mybatis-plus.version>
+        <mybatis-plus.version>3.4.2</mybatis-plus.version>
         <p6spy.version>3.9.0</p6spy.version>
-        <hutool.version>5.3.4</hutool.version>
+        <hutool.version>5.6.5</hutool.version>
+        <apollo.version>1.8.0</apollo.version>
         <jasypt.version>3.0.2</jasypt.version>
         <lombok.version>1.18.12</lombok.version>
         <swagger.version>2.9.2</swagger.version>
         <knife4j.version>2.0.2</knife4j.version>
-        <sharding-sphere.version>4.1.0</sharding-sphere.version>
+        <sharding-sphere.version>4.1.1</sharding-sphere.version>
         <dozer.version>6.5.0</dozer.version>
         <jetcache.version>2.6.0</jetcache.version>
     </properties>

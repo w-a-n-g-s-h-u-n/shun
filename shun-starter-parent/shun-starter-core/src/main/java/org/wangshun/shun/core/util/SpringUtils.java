@@ -32,7 +32,6 @@ public class SpringUtils implements ApplicationContextAware, DisposableBean {
     @Override
     public void setApplicationContext(ApplicationContext context) throws BeansException {
         SpringUtils.context = context;
-
     }
 
     /**
@@ -104,15 +103,8 @@ public class SpringUtils implements ApplicationContextAware, DisposableBean {
         return context.getBeansOfType(clazz);
     }
 
-    public static <T> List<T> getImplInstanceArray(Class<T> clazz) {
-        List<T> list = new ArrayList<>();
-
-        Map<String, T> map = context.getBeansOfType(clazz);
-
-        for (T t : map.values()) {
-            list.add(t);
-        }
-        return list;
+    public static <T> List<T> getImplInstanceList(Class<T> clazz) {
+        return new ArrayList<>(context.getBeansOfType(clazz).values());
     }
 
     /**
@@ -161,5 +153,4 @@ public class SpringUtils implements ApplicationContextAware, DisposableBean {
     public void destroy() {
         SpringUtils.clearHolder();
     }
-
 }

@@ -81,6 +81,16 @@ public class TimestampCodec extends Jdk8DateCodec {
                 return (T) Instant.ofEpochMilli(millis);
             }
         }
+
+        if (lexer.token() == JSONToken.LITERAL_STRING) {
+            String millis = lexer.stringVal();
+            lexer.nextToken();
+
+            if (type == Instant.class) {
+                return (T) Instant.ofEpochMilli(Long.valueOf(millis));
+            }
+        }
+
         return super.deserialze(parser, type, fieldName, format, feature);
     }
 }

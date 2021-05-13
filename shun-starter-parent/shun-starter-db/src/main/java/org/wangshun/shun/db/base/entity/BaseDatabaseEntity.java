@@ -36,7 +36,7 @@ public abstract class BaseDatabaseEntity<T extends BaseDatabaseEntity<T>> implem
                 throws SQLException {
             Long id = parameter.getId();
             if (null == id) {
-                ps.setNull(i, JdbcType.BIGINT.TYPE_CODE);
+                return;
             } else {
                 ps.setLong(i, id);
             }

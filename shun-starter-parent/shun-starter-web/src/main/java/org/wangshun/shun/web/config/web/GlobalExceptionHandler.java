@@ -37,7 +37,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(ServiceException.class)
     public R runtimeExceptionHandler(final ServiceException e, final WebRequest request) {
         log.error("运行时异常：{}", e.getMessage(), e);
-        return R.error(e);
+        return R.error(e.getMessage());
     }
 
     @Override
@@ -121,7 +121,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         if (HttpStatus.INTERNAL_SERVER_ERROR.equals(status)) {
             request.setAttribute(WebUtils.ERROR_EXCEPTION_ATTRIBUTE, ex, WebRequest.SCOPE_REQUEST);
         }
-        return new ResponseEntity<>(R.error().setCode(status.value()).setMsg(ex.getLocalizedMessage()).setData(body), headers, HttpStatus.OK);
+        return new ResponseEntity<>(R.error(), headers, HttpStatus.OK);
     }
 
 }

@@ -33,7 +33,10 @@ public class PageCondition<T> {
         if (StrUtil.isNotBlank(orders)) {
             JSONObject ordersJson = JSONArray.parseObject(orders);
             ordersJson.forEach((key, value) -> {
-                orderList.add(new OrderItem().setColumn(key).setAsc(ASC.equals(value)));
+                OrderItem orderItem = new OrderItem();
+                orderItem.setColumn(key);
+                orderItem.setAsc(ASC.equals(value));
+                orderList.add(orderItem);
             });
         }
         return orderList;
